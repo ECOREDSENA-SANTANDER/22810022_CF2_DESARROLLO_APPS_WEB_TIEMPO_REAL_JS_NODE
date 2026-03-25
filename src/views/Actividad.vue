@@ -42,6 +42,16 @@ export default {
               texto: 'Diseñar interfaces gráficas.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Crear hojas de estilo.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Administrar bases de datos.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -65,6 +75,16 @@ export default {
               texto: 'package.json.',
               esCorrecta: true,
             },
+            {
+              id: 'c',
+              texto: 'server.js.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'config.js.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -73,7 +93,8 @@ export default {
         },
         {
           id: 3,
-          texto: '¿Cuál es la función principal del framework Express.js?',
+          texto:
+            '¿Cuál es la función principal del <em>framework</em> Express.js?',
           imagen: require('@/assets/actividad/imagen3.png'),
           barajarRespuestas: true,
           opciones: [
@@ -86,6 +107,16 @@ export default {
               id: 'b',
               texto: 'Administrar el sistema operativo.',
               esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Compilar código JavaScript.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Simplificar la creación de servidores y rutas web.',
+              esCorrecta: true,
             },
           ],
           mensaje_correcto:
@@ -109,6 +140,16 @@ export default {
               texto: 'Enviar datos solo mediante HTTP.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Establecer comunicación bidireccional en tiempo real.',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Reducir el uso de JavaScript.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -124,12 +165,22 @@ export default {
           opciones: [
             {
               id: 'a',
-              texto: 'Long polling.',
+              texto: '<em>Long polling</em>.',
               esCorrecta: true,
             },
             {
               id: 'b',
-              texto: 'Broadcast.',
+              texto: '<em>Broadcast</em>.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: '<em>Streaming</em>.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Caché local.',
               esCorrecta: false,
             },
           ],
@@ -155,6 +206,16 @@ export default {
               texto: 'Socket.io.',
               esCorrecta: true,
             },
+            {
+              id: 'c',
+              texto: 'Laravel.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Bootstrap.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -163,7 +224,7 @@ export default {
         },
         {
           id: 7,
-          texto: '¿Qué función cumple el event loop en Node.js?',
+          texto: '¿Qué función cumple el <em>event loop</em> en Node.js?',
           imagen: require('@/assets/actividad/imagen3.png'),
           barajarRespuestas: true,
           opciones: [
@@ -175,6 +236,16 @@ export default {
             {
               id: 'b',
               texto: 'Almacenar datos.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Gestionar eventos asincrónicos del sistema.',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Compilar aplicaciones web.',
               esCorrecta: false,
             },
           ],
@@ -200,6 +271,16 @@ export default {
               texto: 'node run.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'npm execute.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'npm install.',
+              esCorrecta: true,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -220,6 +301,16 @@ export default {
             {
               id: 'b',
               texto: 'Un archivo de configuración.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Un sistema operativo.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Una base de datos.',
               esCorrecta: false,
             },
           ],
@@ -245,6 +336,16 @@ export default {
               texto: 'server.send().',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'io.emit().',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'node.broadcast().',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -266,6 +367,16 @@ export default {
             {
               id: 'b',
               texto: 'Reemplazar el sistema operativo.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Administrar bases de datos.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Crear redes de comunicación.',
               esCorrecta: false,
             },
           ],
@@ -291,6 +402,16 @@ export default {
               texto: 'Sustitución del servidor.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Resaltado de sintaxis e IntelliSense.',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Compilación automática del navegador.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -313,6 +434,17 @@ export default {
               texto: 'Que solo funciona en tiempo real.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Que no utiliza redes.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto:
+                'Que no recuerda las interacciones anteriores entre cliente y servidor.',
+              esCorrecta: true,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -328,12 +460,22 @@ export default {
           opciones: [
             {
               id: 'a',
-              texto: 'Half-duplex.',
+              texto: '<em>Half-duplex.</em>',
               esCorrecta: false,
             },
             {
               id: 'b',
-              texto: 'Single-thread.',
+              texto: '<em>Single-thread.</em>',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: '<em>Full-duplex.</em>',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Serial.',
               esCorrecta: false,
             },
           ],
@@ -359,6 +501,16 @@ export default {
               texto: 'Una base de datos.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Un archivo de configuración.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Un navegador web.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -381,6 +533,16 @@ export default {
               texto: 'Importar módulos al programa.',
               esCorrecta: true,
             },
+            {
+              id: 'c',
+              texto: 'Crear bases de datos.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Eliminar dependencias.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -401,6 +563,16 @@ export default {
             {
               id: 'b',
               texto: 'Limita el uso de eventos.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Permite manejar múltiples conexiones simultáneamente.',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Elimina el <em>event loop</em>.',
               esCorrecta: false,
             },
           ],
@@ -426,6 +598,16 @@ export default {
               texto: 'Archivos PDF.',
               esCorrecta: false,
             },
+            {
+              id: 'c',
+              texto: 'Sistemas operativos.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Aplicaciones en tiempo real como chats o juegos.',
+              esCorrecta: true,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -449,6 +631,16 @@ export default {
               texto: 'npm.',
               esCorrecta: true,
             },
+            {
+              id: 'c',
+              texto: 'Apache.',
+              esCorrecta: false,
+            },
+            {
+              id: 'd',
+              texto: 'Docker.',
+              esCorrecta: false,
+            },
           ],
           mensaje_correcto:
             'Se evidencia comprensión de los conceptos fundamentales abordados en el componente formativo.',
@@ -470,6 +662,16 @@ export default {
             {
               id: 'b',
               texto: 'Reducción de código.',
+              esCorrecta: false,
+            },
+            {
+              id: 'c',
+              texto: 'Resolución de problemas y pensamiento lógico.',
+              esCorrecta: true,
+            },
+            {
+              id: 'd',
+              texto: 'Uso exclusivo de <em>frameworks</em>.',
               esCorrecta: false,
             },
           ],

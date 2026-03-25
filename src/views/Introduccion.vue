@@ -8,6 +8,15 @@
           i.fas.fa-info
       h1 Introducción
     
+    .bloque-texto-g.color-acento-contenido.p-3.p-sm-4.p-md-5.mb-5.br-2
+      .bloque-texto-g__img.d-none.d-lg-block(
+        :style="{'background-image': `url(${require('@/assets/curso/intro/1.png')})`}"
+      )
+      .bloque-texto-g__texto.p-4.d-flex.flex-column.br-3.ml-cus-2
+        p.mb-3 Un usuario escribe un mensaje y en décimas de segundo aparece en la pantalla de otra persona al otro lado del país. Detrás de esa experiencia existe una arquitectura técnica precisa: un servidor activo, un canal de comunicación persistente y código que responde en tiempo real. Construir esa arquitectura es exactamente el propósito de este recorrido.
+
+        p.mb-0 El camino avanza desde la configuración profesional del entorno de desarrollo hasta la construcción de un servidor funcional con Node.js y la integración de sockets para establecer canales de comunicación bidireccional. Cada concepto se aborda desde su funcionamiento interno para poder anticipar fallos y tomar decisiones técnicas argumentadas frente a escenarios reales.
+    p.mb-5 El punto de llegada es una aplicación web funcional donde múltiples clientes se comunican de forma simultánea a través del servidor, no como ejercicio académico aislado, sino como demostración concreta de las mismas tecnologías que impulsan los sistemas de chat corporativos, tableros financieros en vivo y plataformas de colaboración más exigentes del mercado actual.
     .row.justify-content-center.align-items-center           
       .col-lg-12
         figure
