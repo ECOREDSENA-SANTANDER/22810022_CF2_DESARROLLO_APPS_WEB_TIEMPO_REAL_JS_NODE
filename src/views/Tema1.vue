@@ -5,7 +5,12 @@
       .titulo-principal.color-acento-contenido
         .titulo-principal__numero
           span 1
-        h1 Titulo de primer nivel
+        h1 Preparación del entorno de desarrollo
+      #t_1_1.titulo-segundo.color-acento-contenido(data-aos='fade-right')
+        h2 1.1 Requerimientos de hardware y software
+      #t_1_2.titulo-segundo.color-acento-contenido(data-aos='fade-right')
+        h2 1.2 Entorno de desarrollo integrado y configuración inicial
+      
         
 
   </template>

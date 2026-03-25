@@ -1,9 +1,10 @@
 export default {
   global: {
-    Name: 'Nombre del recurso educativo',
-    Description: 'Descripción del RED',
-    imagenBannerPrincipal: require('@/assets/curso/portada/banner-principal.svg'),
-    fondoBannerPrincipal: require('@/assets/curso/portada/fondo-banner-principal.png'),
+    Name: 'Construcción de aplicaciones web en tiempo real con Node.js',
+    Description:
+      'Configurar un entorno profesional, levantar un servidor con Node.js y establecer canales de comunicación bidireccional mediante WebSockets son los pasos que separan el conocimiento teórico de una aplicación funcional. Este componente aborda la construcción práctica de soluciones web en tiempo real, desde la infraestructura hasta la integración de <em>sockets</em>, con criterio técnico y código estructurado.',
+    imagenBannerPrincipal: require('@/assets/curso/portada/banner-principal.png'),
+    fondoBannerPrincipal: require('@/assets/curso/portada/fondo-banner-principal.svg'),
     imagenesDecorativasBanner: [
       {
         clases: ['banner-principal-decorativo-1', 'd-none', 'd-lg-block'],
@@ -12,6 +13,10 @@ export default {
       {
         clases: ['banner-principal-decorativo-2'],
         imagen: require('@/assets/curso/portada/banner-principal-decorativo-2.svg'),
+      },
+      {
+        clases: ['banner-principal-decorativo-3'],
+        imagen: require('@/assets/curso/portada/banner-principal-decorativo-3.svg'),
       },
     ],
   },
@@ -31,28 +36,52 @@ export default {
       {
         nombreRuta: 'tema1',
         numero: '1',
-        titulo: 'Tema 1',
+        titulo: 'Preparación del entorno de desarrollo',
         desarrolloContenidos: true,
         subMenu: [
           {
             numero: '1.1',
-            titulo: 'Subtema 1',
+            titulo: 'Requerimientos de <em>hardware</em> y <em>software</em>',
             hash: 't_1_1',
+          },
+          {
+            numero: '1.2',
+            titulo: 'Entorno de desarrollo integrado y configuración inicial',
+            hash: 't_1_2',
           },
         ],
       },
-
       {
         nombreRuta: 'tema2',
         numero: '2',
-        titulo: 'Tema 2',
+        titulo: 'Construcción del servidor con Node.js',
         desarrolloContenidos: true,
+        subMenu: [
+          {
+            numero: '2.1',
+            titulo: 'Arquitectura del servidor básico',
+            hash: 't_2_1',
+          },
+          {
+            numero: '2.2',
+            titulo: 'WebSockets: comunicación bidireccional en tiempo real',
+            hash: 't_2_2',
+          },
+        ],
       },
       {
         nombreRuta: 'tema3',
         numero: '3',
-        titulo: 'Tema 3',
+        titulo: 'Aplicación práctica: pizarra virtual colaborativa',
         desarrolloContenidos: true,
+        subMenu: [],
+      },
+      {
+        nombreRuta: 'tema5',
+        numero: '4',
+        titulo: 'Flujo lógico del desarrollador',
+        desarrolloContenidos: true,
+        subMenu: [],
       },
     ],
     subMenu: [
@@ -105,14 +134,105 @@ export default {
   ],
   glosario: [
     {
-      termino: 'Término',
-      significado: 'Definición',
+      termino: 'API (interfaz de programación de aplicaciones)',
+      significado:
+        'conjunto de reglas y protocolos que permite la comunicación entre distintas aplicaciones de <em>software</em>. en el contexto del desarrollo web con node.js, express facilita la construcción de la api del servidor definiendo las rutas y respuestas disponibles para los clientes.',
+    },
+    {
+      termino: '<em>Broadcast</em>',
+      significado:
+        'método de transmisión en socket.io mediante el cual el servidor envía un evento a todos los clientes conectados simultáneamente, con excepción del emisor original. se implementa con socket.broadcast.emit().',
+    },
+    {
+      termino: 'Dependencia',
+      significado:
+        'librería de código desarrollada por terceros que un proyecto node.js necesita para funcionar. se instala con npm install y queda registrada en el archivo package.json, lo que permite reconstruir el entorno en cualquier equipo.',
+    },
+    {
+      termino: 'Electron',
+      significado:
+        'marco de trabajo de código abierto que permite desarrollar aplicaciones de escritorio multiplataforma usando tecnologías web (html, css y javascript). visual studio code está construido sobre electron, lo que explica su comportamiento idéntico en windows, macos y linux.',
+    },
+    {
+      termino: '<em>Event loop</em> (bucle de eventos)',
+      significado:
+        'mecanismo interno de node.js que permite ejecutar operaciones de entrada/salida de forma no bloqueante. en lugar de esperar a que una tarea pesada termine, delega su ejecución al sistema operativo y continúa procesando otras solicitudes, lo que posibilita alta concurrencia en un solo hilo.',
+    },
+    {
+      termino: 'Express',
+      significado:
+        'marco de trabajo minimalista para node.js que simplifica la creación de servidores http, la definición de rutas y el manejo de peticiones y respuestas. es el estándar de la industria para construir el servidor base sobre el que se integran capas adicionales como socket.io.',
+    },
+    {
+      termino: '<em>Full-duplex</em>',
+      significado:
+        'característica de un canal de comunicación que permite enviar y recibir datos simultáneamente en ambas direcciones sin interrupciones. es la propiedad fundamental de los websockets que los distingue del protocolo http tradicional, donde solo el cliente puede iniciar la comunicación.',
+    },
+    {
+      termino: '<em>Handshake</em> (negociación inicial)',
+      significado:
+        'proceso automatizado entre cliente y servidor para establecer los parámetros de una conexión websocket. el cliente envía una petición http con cabecera de <em>upgrade</em> y, si el servidor la acepta, la conexión http se transforma en un canal tcp persistente y bidireccional.',
+    },
+    {
+      termino: 'IDE (entorno de desarrollo integrado)',
+      significado:
+        'plataforma de <em>software</em> que centraliza en una sola interfaz las herramientas esenciales del desarrollo: editor de código, terminal integrada y depurador. en el ecosistema node.js, visual studio code es el ide de referencia en la industria.',
+    },
+    {
+      termino: '<em>Localhost</em>',
+      significado:
+        'nombre de <em>host</em> que hace referencia a la propia máquina donde se ejecuta el servidor (dirección ip 127.0.0.1). se utiliza para probar aplicaciones web en el entorno local antes de desplegarlas en un servidor de producción accesible desde internet.',
+    },
+    {
+      termino: 'Node.js',
+      significado:
+        'entorno de ejecución de javascript de código abierto y multiplataforma, construido sobre el motor v8 de chrome. permite ejecutar javascript en el servidor, fuera del navegador, y está diseñado para construir aplicaciones de red escalables gracias a su modelo de i/o no bloqueante.',
+    },
+    {
+      termino: 'NPM (<em>node package manager</em>)',
+      significado:
+        'gestor de paquetes oficial de node.js que permite instalar, actualizar y administrar dependencias de terceros. incluye acceso al repositorio público de paquetes de código abierto más grande del mundo y se instala automáticamente junto con node.js.',
+    },
+    {
+      termino: 'Package.json',
+      significado:
+        'archivo manifiesto ubicado en la raíz de todo proyecto node.js. registra el nombre del proyecto, el archivo de entrada principal y el inventario exacto de dependencias instaladas. permite que cualquier desarrollador reconstruya el entorno completo con un solo comando npm install.',
+    },
+    {
+      termino: 'Servidor HTTP',
+      significado:
+        '<em>software</em> que implementa el protocolo http y es responsable de recibir peticiones de navegadores web y entregar la respuesta correspondiente. en el contexto de node.js, el servidor http se construye con el módulo nativo http y se organiza mediante el <em>framework</em> express.',
+    },
+    {
+      termino: 'WebSockets',
+      significado:
+        'protocolo de comunicación estandarizado (RFC 6455) que establece un canal persistente, bidireccional y <em>full-duplex</em> sobre una única conexión TCP. a diferencia del protocolo HTTP, permite que el servidor envíe datos al cliente en cualquier momento sin esperar una petición previa, lo que lo hace ideal para chats, tableros y aplicaciones colaborativas en tiempo real.',
     },
   ],
   referencias: [
     {
-      referencia: '',
-      link: '',
+      referencia:
+        "Brown, E. (2020). Web development with Node and Express: Leveraging the JavaScript stack (2.ª ed.). O'Reilly Media.",
+    },
+    {
+      referencia: 'MDN Web Docs. (2023). Canvas API. Mozilla Foundation.',
+    },
+    {
+      referencia: 'MDN Web Docs. (2023). WebSockets API. Mozilla Foundation.',
+    },
+    {
+      referencia:
+        'Microsoft. (2024). Node.js tutorial in Visual Studio Code. Microsoft.',
+    },
+    {
+      referencia:
+        'Node.js Foundation. (2024). Introduction to Node.js. OpenJS Foundation.',
+    },
+    {
+      referencia: 'Npm. (2024). About npm. npm, Inc.',
+    },
+    {
+      referencia: 'Socket.IO. (2024). Introduction to Socket.IO. Socket.IO.',
     },
   ],
   creditos: [
@@ -135,9 +255,9 @@ export default {
       titulo: 'CONTENIDO INSTRUCCIONAL',
       autores: [
         {
-          nombre: '--',
+          nombre: 'Carlos Andrés Bonza Reyes',
           cargo: 'Experto temático',
-          centro: '--',
+          centro: 'Centro Agroturístico - Regional Santander',
         },
       ],
     },
@@ -145,13 +265,13 @@ export default {
       titulo: 'DISEÑO Y DESARROLLO DE RECURSOS EDUCATIVOS DIGITALES',
       autores: [
         {
-          nombre: '--',
+          nombre: 'Marcos Yamid Rubiano Avellaneda',
           cargo: 'Diseñador de contenidos',
           centro: 'Centro Agroturístico - Regional Santander',
         },
         {
-          nombre: '--',
-          cargo: 'Desarrollador <em>full stack</em>',
+          nombre: 'Lizeth Karina Manchego Suarez',
+          cargo: 'Desarrolladora <em>full stack</em>',
           centro: 'Centro Agroturístico - Regional Santander',
         },
         {
@@ -165,12 +285,12 @@ export default {
       titulo: 'VALIDACIÓN RECURSO EDUCATIVO DIGITAL',
       autores: [
         {
-          nombre: 'Erika Daniela Manrique Rueda',
+          nombre: '--',
           cargo: 'Validadora y vinculadora de recursos educativos digitales',
           centro: 'Centro Agroturístico - Regional Santander',
         },
         {
-          nombre: 'Laura Paola Gelvez Manosalva',
+          nombre: '--',
           cargo: 'Evaluadora de contenidos inclusivos y accesibles',
           centro: 'Centro Agroturístico - Regional Santander',
         },
