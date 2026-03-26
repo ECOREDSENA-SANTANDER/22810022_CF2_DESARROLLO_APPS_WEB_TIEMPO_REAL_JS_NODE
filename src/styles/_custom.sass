@@ -33,76 +33,55 @@
 .banner-principal p, .banner-principal h1, .banner-principal h2, .banner-principal h3, .banner-principal h4, .banner-principal h5, .banner-principal h6 
   color: $color-sistema-texto !important  
 
-.titulo-principal.color-acento-contenido .titulo-principal__numero 
-    background-color: #2D3D45
-.banner-interno__titulo__icono i 
-    color: #2D3D45 !important
 
 .banner-interno__fondo
     background-image: url(../assets/curso/portada/fondo-banner-vista.svg) !important
 
-.banner-interno__titulo h1, .banner-interno__titulo h2, 
-.banner-interno__titulo h3, .banner-interno__titulo h4, 
-.banner-interno__titulo h5, .banner-interno__titulo h6
-  color: $white !important  
-.titulo-principal.color-acento-contenido .titulo-principal__numero span
-  color: $white !important
+
 figcaption 
     font-weight: normal !important
 
-.tarjeta.tarjeta-verde
-  background-color: #DCECD1 !important
-.tarjeta.tarjeta-verde.acordion__activo
-  background-color: #CCE5F2 !important
 
-
-.acordion__accion__btn--a 
-    background-color: #F4D35E !important;
-    box-shadow: none !important;
 
 
 .lista-ul--color li > i:first-of-type
     color: #007CBE;
-.pasos-a.color-primario .pasos-a__circle 
-    background-color: #2D3D45;
-.pasos-a.color-primario .pasos-a__numero::after
-    border-left-color: #B6C1C6;
-.pasos-a.color-primario .pasos-a__linea .hor-line
-    border-top-color: #B6C1C6;
+.linea-tiempo-c__header__btn, .linea-tiempo-c__header__btn--left, .linea-tiempo-c__header__btn--right, .pasos-b__header__btn--left, .pasos-b__header__btn--right
+    border: 0 !important
+    background-color: $color-acento-botones !important
+.pasos-b__header__item--before .pasos-b__header__item__dot
+    border-color: $color-primario !important
+    background-color: $color-primario !important;
+.pasos-b__header__item__dot i 
+  color: $color-sistema-texto !important
 
-.pasos-a.color-primario .pasos-a__linea__esquina__linea
-    border-color: #B6C1C6;
-    border-radius: 0px 
+.pasos-b__header__item--before .pasos-b__header__item__line-container:before, .pasos-b__header__item--before .pasos-b__header__item__line-container:after,
+.pasos-b__header__item--active .pasos-b__header__item__line-container:before
+    background-color: $color-primario !important
+.pasos-b__header__item:first-child .pasos-b__header__item__line-container:before
+    background-color: transparent !important
+.pasos-b__header__item__dot 
+    border: 3px solid #144567
 .col.py-3.text-end
   text-align: start !important
-.tarjeta--boton 
-    background-color: #4A6572;
+.tarjeta--boton.color-acento-contenido
+    background-color: #EDFDEF;
     text-align: center !important
-    p
-      color: $white !important
-    img
-      filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(5deg) brightness(104%) contrast(101%);
-    &--titulo
-      background-color: #FFFFFF 
-.tarjeta--boton.color-secundario:active, 
-.tarjeta--boton.color-secundario:focus,
-.tarjeta--boton.color-secundario:hover
-    background-color: #DCECD1 !important;
-    
-    p
-      color: $color-sistema-texto !important
-    img
-      filter: brightness(0) saturate(100%) invert(34%) sepia(49%) saturate(256%) hue-rotate(154deg) brightness(96%) contrast(88%);
-    .tarjeta--boton--titulo
-      background-color: #A8D08D !important
+.tarjeta--boton.color-acento-contenido:active, 
+.tarjeta--boton.color-acento-contenido:focus,
+.tarjeta--boton.color-acento-contenido:hover
+    background-color: #B9F0E8 !important;
 .tabs-a__tab 
-    background-color: #DBE0E3
+    background-color: #fff
 .tabs-a__tab__text 
     white-space: normal;
-.tabs-c.color-primario .tabs-c__tab--active
+.tabs-c__tab
+    border-bottom: 4px solid #0F5F6B
+    background-color: $color-primario
+.tabs-c.color-acento-contenido .tabs-c__tab--active
   font-weight: bold
+  background-color: #fff !important
 .tabs-c__content-item
-  background-color: #DBE0E3
   position: relative;
   top: -15px;
   z-index: 0;
@@ -145,12 +124,16 @@ figcaption
       p
         font-size: 0.85em
 .acordion
+  
   &__activo
-    background-color: #F8E29E !important
+    background-color: #B9F0E8 !important
   &__accion__btn--a
-    background-color: #9028E2
-    i
-      color: #FFF
+    background-color: #A6F6AF 
+    box-shadow: none !important
+
+.acordion__activo .acordion__accion__btn--a
+    background-color: #69D2CD 
+    
 
 .tarjeta.color-primario
     background-color: #004B72
@@ -163,7 +146,12 @@ figcaption
     border: 0
 .slyder-a__bullets__item--active
     background-color: #B6C1C6
-
+.bloque-texto-g.color-adicional-1
+  background-color: $color-adicional-1
+.bloque-texto-g__texto
+    width: 70%;
+.cajon.color-acento-contenido:before
+  background-color: #0F5F6B
 /**************************************************************/
 /***CUSTOM STYLES***/
 /**************************************************************/
@@ -183,21 +171,13 @@ figcaption
 
 .bg-color
   &-1
-    background-color: #E6F2F9 !important
+    background-color: #69D2CD
   &-2
-    background-color: #99CAE5 !important
+    background-color: #EDFDEF !important
   &-3
-    background-color: #004B72 !important
+    background-color: #1C526E !important
   &-4
-    background-color: #DCECD1 !important
-  &-5
-    background-color: #A8D08D !important
-  &-6
-    background-color: #fff !important
-  &-7
-    background-color: #CCE5F2 !important
-  &-8
-    background-color: #2D3D45 !important
+    background-color: $white !important
 .br
   &-1
     border-radius: 10px !important
@@ -211,10 +191,15 @@ figcaption
     margin-left: 30px !important
   &-2
     padding-right: 80px !important
+  &-3
+    padding: 1.5rem !important;
+  &-4
+    padding-right: 3rem !important;
+    padding-left: 3rem !important;
       
 .hcard
   &-1
-    height: 380px !important
+    height: 320px !important
 .w-cus
   &-1
     width: fit-content !important
@@ -227,40 +212,28 @@ figcaption
     color: $color-sistema-texto !important
   &-2
     color: #09A82E !important
+  &-3
+    color: #2569DF !important
 .titulo-icono
   width: fit-content
   position: relative;
   left: 12px;
+  background-color: $color-adicional-2
+  border-radius: 30px
  
   &-text
     margin-right: 10px
     margin-left: 45px;
     @media screen and (max-width: 767px)
       margin-left: 0px;
-      &:after
-          content: '';
-          display: block;
-          height: 3px;
-          width: 140px;
-          border-left: solid 250px;
-          border-color: $color-primario;
-          margin-top: 17px
+      
   &-img
     padding: 0px
     position: absolute
-    top: 10px
+    top: -5px
 
     @media screen and (max-width: 767px)
         display: none
-
-    &:after
-      content: '';
-      display: block;
-      height: 3px;
-      width: 140px;
-      border-left: solid 250px;
-      border-color: $color-primario;
-      margin-top: 30px
 
     img
       position: relative
@@ -268,30 +241,14 @@ figcaption
  
 
 .titulo-icono-2
-  background-color: #007CBE
-  border-radius: 30px
+  background-color: #F7F7D7
+  border-top-right-radius: 30px
+  border-bottom-right-radius: 30px
   width: fit-content
-  position: relative;
-  left: 15px;
   &-text
     margin-right: 10px
-    margin-left: 40px;
-    color: $white !important
-  &-img
-    padding: 0px
-    position: absolute
-    top: -6px
-    left: 5px
-
-
-    &:before
-      position: relative
-      border-radius: 60px
-      @media screen and (max-width: 767px)
-        height: 280%
-    img
-      position: relative
-      max-width: 50px
+    margin-left: 10px;
+ 
 .titulo-icono-3
   width: fit-content
   position: relative;
@@ -344,7 +301,7 @@ figcaption
     width: 95% !important;
   .hcard
     &-1
-      height: 450px !important
+      height: 320px !important
   
   .br
     &-2
@@ -376,14 +333,31 @@ figcaption
     padding-bottom: 5rem !important; 
   
   .titulo-icono-2
-    background-color: #007CBE
     left: 0px;
     &-text
       margin-left: 10px;
     img
       display: none
   
-  
+  .titulo-icono
+    width: fit-content
+    position: initial !important
+    background-color: $color-adicional-2
+    border-radius: 0 30px 30px 0  !important
+ 
+    &-text
+      margin-right: 10px
+      margin-left: 45px;
+      @media screen and (max-width: 767px)
+        margin-left: 10px;
+        
+   
+  .ml-cus
+    &-3
+      padding: 0.5rem !important;
+    &-4
+      padding-right: 0.8rem !important;
+      padding-left: 0.8rem !important;
   
   .tarjeta--container > .tarjeta:last-child,
   .tarjeta--container > .tarjeta:first-child
