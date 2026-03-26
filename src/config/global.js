@@ -93,7 +93,7 @@ export default {
         ],
       },
       {
-        nombreRuta: 'tema5',
+        nombreRuta: 'tema4',
         numero: '4',
         titulo: 'Flujo lógico del desarrollador',
         desarrolloContenidos: true,
