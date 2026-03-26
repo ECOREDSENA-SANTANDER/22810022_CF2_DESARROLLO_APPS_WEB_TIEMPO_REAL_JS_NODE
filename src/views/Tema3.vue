@@ -74,10 +74,16 @@
       #t_3_3.titulo-segundo.color-acento-contenido(data-aos='fade-right')
         h2 3.3 Código del cliente
       p.mb-5(data-aos='fade-right') El archivo #[b.text-cus-2 public/index.html] contiene toda la interfaz y la lógica del cliente en un solo archivo:
+
+
+
       .row.justify-content-center.mb-5(data-aos='fade-right')
-        .col-sm-12.col-lg-6
+        .col-sm-12.col-lg-10
           .cajon.color-primario.p-5.mb-0
-            img(src='@/assets/curso/temas/t3/11.svg', alt='')
+            p.mb-2 html
+            pre.mb-0
+              code.language-html(v-html="highlightedClientHtml")
+            //img(src='@/assets/curso/temas/t3/11.svg', alt='')
       
       AcordionA(tipo="a" clase-tarjeta="tarjeta bg-color-7")(data-aos='fade-right')
         .row.align-items-center(titulo="El elemento canvas y el contexto 2D")
@@ -101,8 +107,75 @@
 export default {
   name: 'Tema1',
   data: () => ({
-    // variables de vue
+    // HTML del cliente (se resalta en runtime para que se vea coloreado)
+    clientHtml: `<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizarra virtual colaborativa</title>
+    <style>
+        body { margin: 0; background: #1a1a2e; display: flex;
+               justify-content: center; align-items: center;
+               height: 100vh; }
+        canvas { background: #ffffff; cursor: crosshair;
+                 border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <canvas id="pizarra" width="800" height="500"></canvas>
+
+    <script src="/socket.io/socket.io.js">${'</scr'}${'ipt>'}
+    <script>
+        const socket = io();
+        const canvas = document.getElementById('pizarra');
+        const ctx = canvas.getContext('2d');
+
+        let dibujando = false;
+        let xAnterior = 0;
+        let yAnterior = 0;
+
+        function dibujarLinea(x0, y0, x1, y1, color, emitir) {
+            ctx.beginPath();
+            ctx.moveTo(x0, y0);
+            ctx.lineTo(x1, y1);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.stroke();
+
+            if (emitir) {
+                socket.emit('dibujar', { x0, y0, x1, y1, color });
+            }
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            dibujando = true;
+            xAnterior = e.offsetX;
+            yAnterior = e.offsetY;
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (!dibujando) return;
+            dibujarLinea(xAnterior, yAnterior, e.offsetX, e.offsetY, '#e63946', true);
+            xAnterior = e.offsetX;
+            yAnterior = e.offsetY;
+        });
+
+        canvas.addEventListener('mouseup', () => { dibujando = false; });
+        canvas.addEventListener('mouseleave', () => { dibujando = false; });
+
+        socket.on('dibujar', (datos) => {
+            dibujarLinea(datos.x0, datos.y0, datos.x1, datos.y1, datos.color, false);
+        });
+    ${'</scr'}${'ipt>'}
+</body>
+</html>`,
   }),
+  computed: {
+    highlightedClientHtml() {
+      return this.highlightAsHtml(this.clientHtml)
+    },
+  },
   mounted() {
     this.$nextTick(() => {
       this.$aosRefresh()
@@ -111,7 +184,134 @@ export default {
   updated() {
     this.$aosRefresh()
   },
+  methods: {
+    escapeHtml(str) {
+      // Escapamos solo lo necesario para que se renderice como texto:
+      // - '&' y '<' y '>' para evitar que el navegador lo interprete como tags
+      // - '"' se escapa porque lo usamos en atributos dentro del HTML resaltado
+      // - NO escapamos "'" para evitar que se renderice como &#39; visible
+      return str.replace(/[&<>"']/g, ch => {
+        switch (ch) {
+          case '&':
+            return '&amp;'
+          case '<':
+            return '&lt;'
+          case '>':
+            return '&gt;'
+          case '"':
+            return '&quot;'
+          case "'":
+            return "'"
+          default:
+            return ch
+        }
+      })
+    },
+    highlightAsHtml(raw) {
+      // Resalta una versión escapada del HTML con spans (sin depender de plugins externos).
+      let s = this.escapeHtml(raw)
+
+      // DOCTYPE
+      s = s.replace(/&lt;!DOCTYPE\s+([a-zA-Z0-9]+)\s*&gt;/g, (_m, v) => {
+        return `&lt;!DOCTYPE <span class="tok-doctype">${v}</span>&gt;`
+      })
+
+      // Nombres de tags: &lt;tag ... o &lt;/tag ...
+      s = s.replace(/&lt;(\/)?([a-zA-Z][\w:-]*)/g, (_m, slash, name) => {
+        return `&lt;${slash ? '/' : ''}<span class="tok-tag">${name}</span>`
+      })
+
+      // Atributos estilo: attr=&quot;value&quot;
+      s = s.replace(
+        /([a-zA-Z_:][\w:.-]*)=&quot;([^&]*)&quot;/g,
+        (_m, name, value) => {
+          return `<span class="tok-attr">${name}</span>=&quot;<span class="tok-value">${value}</span>&quot;`
+        },
+      )
+
+      // Strings JS con comillas simples: 'texto'
+      s = s.replace(/'([^']*)'/g, (_m, value) => {
+        return "'" + `<span class="tok-js-str">${value}</span>` + "'"
+      })
+
+      // Keywords JS (conservador: solo las más comunes del snippet)
+      s = s.replace(
+        /\b(const|let|var|function|return|if|else|new)\b/g,
+        m => `<span class="tok-js-kw">${m}</span>`,
+      )
+
+      // booleanos JS (true/false)
+      s = s.replace(
+        /\b(true|false)\b/g,
+        m => `<span class="tok-js-bool">${m}</span>`,
+      )
+
+      // números (enteros y decimales)
+      s = s.replace(
+        /\b(\d+(?:\.\d+)?)\b/g,
+        (_m, n) => `<span class="tok-js-num">${n}</span>`,
+      )
+
+      // Métodos/funciones específicas del snippet (para que se vean en azul)
+      s = s.replace(
+        /\b(getElementById|getContext|dibujarLinea|beginPath|moveTo|lineTo|on|stroke|emit|addEventListener)\b/g,
+        m => `<span class="tok-js-blue">${m}</span>`,
+      )
+
+      // Solo io() (cuando se llama como función) en azul
+      s = s.replace(
+        /\bio(?=\s*\()/g,
+        m => `<span class="tok-js-blue">${m}</span>`,
+      )
+
+      // Identificadores específicos del snippet (en naranja)
+      s = s.replace(
+        /\b(document|x0|y0|x1|y1|color|emitir|datos)\b/g,
+        m => `<span class="tok-js-orange">${m}</span>`,
+      )
+
+      return s
+    },
+  },
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.tok-doctype
+  color: #c90b0b
+  font-weight: 700
+
+.tok-tag
+  color: #c90b0b
+  font-weight: 700
+
+.tok-attr
+  color: #c90b0b
+  font-weight: 700
+
+.tok-value
+  color: #09a82e
+
+.tok-js-kw
+  color: #e119e8
+  font-weight: 700
+
+.tok-js-str
+  color: #09a82e
+
+.tok-js-bool
+  color: #1597ab
+  font-weight: 700
+
+.tok-js-num
+  color: #1597ab
+  font-weight: 700
+
+.tok-js-blue
+  color: #2569df
+  font-weight: 700
+
+.tok-js-orange
+  color: #d98356
+  font-weight: 700
+</style>
