@@ -7,8 +7,94 @@
           span 3
         h1 Aplicación práctica: pizarra virtual colaborativa
       
-        
+      .bloque-texto-g.bloque-texto-g--inverso.color-adicional-1.p-3.p-sm-4.p-md-5.mb-5.br-2(data-aos='fade-right')
+        .bloque-texto-g__img.d-none.d-lg-block(
+          :style="{'background-image': `url(${require('@/assets/curso/temas/t3/1.png')})`}"
+        )
+        .bloque-texto-g__texto.p-4.d-flex.flex-column.br-3.ml-cus-2
+          p.mb-3  Los conceptos abordados hasta este punto (servidor HTTP, WebSockets y emisión de eventos) adquieren sentido real cuando se integran en una aplicación funcional. Una pizarra virtual colaborativa es el escenario ideal para ello: múltiples usuarios conectados simultáneamente pueden dibujar en tiempo real y cada trazo aparece de forma instantánea en las pantallas de todos los participantes.
+          p.mb-0 Esta aplicación no es un ejercicio decorativo. Comparte la arquitectura central de herramientas profesionales como Google Docs, Figma o Miro: un servidor que coordina eventos entre clientes sin almacenar el estado de la sesión en disco.
+      
+      
+      Separador        
+      #t_3_1.titulo-segundo.color-acento-contenido(data-aos='fade-right')
+        h2 3.1 Estructura del proyecto
+      .row.justify-content-center.mb-5(data-aos='fade-right')
+        .col-sm-12.col-lg-6
+          p.mb-3 Antes de escribir el código, se organiza el proyecto con la siguiente estructura de archivos:
+          .cajon.color-acento-contenido.p-4.mb-0
+            .row.justify-content-center.mb-0.p-0.m-0
+              .col-sm-12.col-lg-5
+                img(src='@/assets/curso/temas/t3/3.svg', alt='')
+              .col-sm-12.col-lg-4.d-none.d-lg-block
+                img(src='@/assets/curso/temas/t3/4.svg', alt='')
+        .col-sm-12.col-lg-6.d-none.d-lg-block
+          img(src='@/assets/curso/temas/t3/2.png', alt='')
+      p.mb-5(data-aos='fade-right') La carpeta #[b.text-cus-2 public/] contendrá el archivo HTML que se entregará al navegador. El archivo #[b.text-cus-2 index.js] será el servidor. Esta separación entre código del servidor y archivos del cliente es una convención estándar en proyectos Node.js; mezclarlos en la misma carpeta raíz dificulta el mantenimiento y la escalabilidad del proyecto.
 
+
+
+
+      Separador        
+      #t_3_2.titulo-segundo.color-acento-contenido(data-aos='fade-right')
+        h2 3.2 Código del servidor
+      p.mb-5(data-aos='fade-right') Con la estructura del proyecto definida, se construye el archivo #[b.text-cus-2 index.js]  que actuará como núcleo de la aplicación. Este servidor combina la entrega de archivos estáticos al navegador con la gestión de eventos de dibujo en tiempo real mediante sockets.
+
+      TabsC.color-acento-contenido(data-aos='fade-right')
+        .py-3.py-md-4(titulo="Configuración del servidor con entrega de archivos estáticos")
+          p.mb-5 #[b.text-cus-2 express.static] le indica al servidor que entregue automáticamente cualquier archivo dentro de la carpeta public/ cuando un navegador lo solicite. Sin esta línea, el servidor respondería con error 404 a cualquier petición de archivos HTML, CSS o JavaScript del cliente. El módulo nativo path garantiza que la ruta funcione correctamente en cualquier sistema operativo, independientemente de si usa barras / o \ como separador.
+          .row.justify-content-center.align-items-center
+            .col-sm-12.col-lg-5
+                .cajon.color-acento-contenido.p-5.mb-0
+                  img(src='@/assets/curso/temas/t3/6.svg', alt='')
+
+            .col-sm-12.col-lg-6.d-none.d-lg-block
+              img(src='@/assets/curso/temas/t3/5.png', alt='')
+
+        .py-3.py-md-4(titulo="Gestión de eventos de dibujo en tiempo real")
+          p.mb-5 El evento #[b.text-cus-2 'dibujar'] recibe del cliente las coordenadas del trazo y las reenvía a todos los demás participantes usando #[b.text-cus-2 socket.broadcast.emit()]. Se usa #[b.text-cus-2 broadcast] en lugar de #[b.text-cus-2 io.emit()] deliberadamente: el cliente que dibuja ya ve su propio trazo en pantalla de forma local, por lo que enviárselo de vuelta generaría una duplicación visual. Este es un ejemplo concreto de por qué la distinción entre métodos de emisión tiene consecuencias directas en el comportamiento de la aplicación.
+          .row.justify-content-center.align-items-center
+            .col-sm-12.col-lg-5
+                .cajon.color-acento-contenido.p-5.mb-0
+                  img(src='@/assets/curso/temas/t3/7.svg', alt='')
+
+            .col-sm-12.col-lg-6.d-none.d-lg-block
+              img(src='@/assets/curso/temas/t3/8.png', alt='')
+
+        .py-3.py-md-4(titulo="Inicio del servidor")
+          .row.justify-content-center.align-items-center
+            .col-sm-12.col-lg-8.p-5
+                .cajon.color-acento-contenido.p-5.mb-0
+                  img(src='@/assets/curso/temas/t3/9.svg', alt='')
+
+            .col-sm-12.col-lg-4.d-none.d-lg-block
+              img(src='@/assets/curso/temas/t3/10.png', alt='')
+
+      Separador
+      #t_3_3.titulo-segundo.color-acento-contenido(data-aos='fade-right')
+        h2 3.3 Código del cliente
+      p.mb-5(data-aos='fade-right') El archivo #[b.text-cus-2 public/index.html] contiene toda la interfaz y la lógica del cliente en un solo archivo:
+      .row.justify-content-center.mb-5(data-aos='fade-right')
+        .col-sm-12.col-lg-6
+          .cajon.color-primario.p-5.mb-0
+            img(src='@/assets/curso/temas/t3/11.svg', alt='')
+      
+      AcordionA(tipo="a" clase-tarjeta="tarjeta bg-color-7")(data-aos='fade-right')
+        .row.align-items-center(titulo="El elemento canvas y el contexto 2D")
+          .col-sm-12.col-lg-7.p-5
+            p.mb-0 El elemento HTML #[b.text-cus-2 canvas] es una superficie de dibujo en píxeles controlada completamente mediante JavaScript. El método #[b.text-cus-2 getContext('2d')] entrega el conjunto de herramientas de dibujo: trazos, figuras, colores y transformaciones. Sin obtener este contexto, el #[b.text-cus-2 canvas] es únicamente un rectángulo vacío sin capacidad de renderizar nada.
+          .col-sm-12.col-lg-5.d-none.d-lg-block
+            img(src='@/assets/curso/temas/t3/12.png', alt='')
+        .row.align-items-center(titulo="La función dibujarLinea y el parámetro emitir ")
+          .col-sm-12.col-lg-7.p-5
+            p.mb-0 Esta función cumple una doble responsabilidad: dibuja el trazo localmente en el #[b.text-cus-2 canvas] y, si el parámetro #[b.text-cus-2 emitir] es #[b.text-cus-2 true], envía las coordenadas al servidor mediante #[b.text-cus-2  socket.emit()]. Cuando el servidor reenvía el evento a los demás clientes y estos lo reciben por #[b.text-cus-2  socket.on('dibujar')], llaman a la misma función con #[b.text-cus-2 emitir] en #[b.text-cus-2 false], evitando así un ciclo infinito donde cada cliente reenviaría indefinidamente los trazos recibidos.
+          .col-sm-12.col-lg-5.d-none.d-lg-block
+            img(src='@/assets/curso/temas/t3/13.png', alt='')
+        .row.align-items-center(titulo="Los eventos del ratón y el control del estado de dibujo ")
+          .col-sm-12.col-lg-7.p-5
+            p.mb-0 La variable #[b.text-cus-2 dibujando] actúa como un interruptor: se activa con #[b.text-cus-2 mousedown] y se desactiva con #[b.text-cus-2 mouseup] o #[b.text-cus-2 mouseleave]. Sin el evento #[b.text-cus-2 mouseleave], al arrastrar el cursor fuera del #[b.text-cus-2 canvas] y volver a entrar, el servidor continuaría recibiendo coordenadas de dibujo, aunque el usuario no tuviera el botón presionado, generando trazos involuntarios que degradan la experiencia de todos los participantes conectados.
+          .col-sm-12.col-lg-5.d-none.d-lg-block
+            img(src='@/assets/curso/temas/t3/14.png', alt='')
   </template>
 
 <script>

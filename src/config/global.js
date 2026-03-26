@@ -74,7 +74,23 @@ export default {
         numero: '3',
         titulo: 'Aplicación práctica: pizarra virtual colaborativa',
         desarrolloContenidos: true,
-        subMenu: [],
+        subMenu: [
+          {
+            numero: '3.1',
+            titulo: 'Estructura del proyecto',
+            hash: 't_3_1',
+          },
+          {
+            numero: '3.2',
+            titulo: 'Código del servidor',
+            hash: 't_3_2',
+          },
+          {
+            numero: '3.3',
+            titulo: 'Código del cliente',
+            hash: 't_3_3',
+          },
+        ],
       },
       {
         nombreRuta: 'tema5',
