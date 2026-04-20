@@ -172,6 +172,17 @@ pre code
     color: #000000 !important
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important
 
+.no-wrap
+  white-space: nowrap
+  flex-wrap: nowrap
+  overflow-x: auto
+  max-width: 100%
+  @media (max-width: $bp-max-lg)
+    white-space: normal
+    flex-wrap: wrap
+    overflow-x: hidden
+    max-width: 100%
+
 
 /**************************************************************/
 /***CUSTOM STYLES***/
@@ -226,7 +237,7 @@ pre code
   &-5
     margin-left: 20px !important    
   &-6
-    margin-left: 30px !important
+    margin-left: 40px !important
 .hcard
   &-1
     height: 320px !important
@@ -237,6 +248,8 @@ pre code
     width: 20% !important
   &-3
     width: 20% !important
+  &-4
+    width: 100% !important
 .icon-list
   font-size: 10pxrem
 .text-cus
@@ -252,6 +265,17 @@ pre code
     color: #D98356 !important
   &-6
     color: #1597AB !important
+  &-7
+    color: #000000 !important
+  &-8
+    font-size: initial !important
+  &-9
+    font-family: "Roboto", sans-serif !important
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.5;
+.tarjeta-audio.color-acento-contenido .tarjeta-audio__texto 
+    font-style: normal !important;
 .titulo-icono
   width: fit-content
   position: relative;
@@ -356,6 +380,9 @@ pre code
   .ml-cus
     &-2
       padding-right: 20px !important
+  .text-cus
+    &-8
+      font-size: 0.85em !important
       
 //// TABLET MINI 768--------------------------------------
 @media screen and (max-width: $bp-min-md)
@@ -406,3 +433,4 @@ pre code
   .hcard
     &-1
       height: auto !important
+  

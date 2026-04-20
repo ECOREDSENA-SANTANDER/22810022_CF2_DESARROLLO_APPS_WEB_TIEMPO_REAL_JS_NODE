@@ -20,10 +20,10 @@ export default {
       tema: 'Nombre del CF',
       titulo: 'Cuestionario',
       introduccion:
-        '<b> Objetivo:</b> verificar la comprensión de los conceptos fundamentales relacionados con la preparación del entorno de desarrollo, la arquitectura de servidores Node.js y la implementación de comunicación en tiempo real mediante WebSockets',
+        '<b> Objetivo:</b> verificar la comprensión de los conceptos fundamentales relacionados con la preparación del entorno de desarrollo, la arquitectura de servidores Node.js y la implementación de comunicación en tiempo real mediante WebSockets.',
       barajarPreguntas: true,
       titulo_aprobado: '¡BUEN TRABAJO!',
-      titulo_reprobado: 'VUELVA A INTENTARLO.',
+      titulo_reprobado: 'VUELVA A INTENTARLO',
       preguntas: [
         {
           id: 1,
@@ -94,7 +94,7 @@ export default {
         {
           id: 3,
           texto:
-            '¿Cuál es la función principal del <em>framework</em> Express.js?',
+            '¿Cuál es la función principal del <i>framework</i> Express.js?',
           imagen: require('@/assets/actividad/imagen3.png'),
           barajarRespuestas: true,
           opciones: [
@@ -165,17 +165,17 @@ export default {
           opciones: [
             {
               id: 'a',
-              texto: '<em>Long polling</em>.',
+              texto: '<i>Long polling</i>.',
               esCorrecta: true,
             },
             {
               id: 'b',
-              texto: '<em>Broadcast</em>.',
+              texto: '<i>Broadcast</i>.',
               esCorrecta: false,
             },
             {
               id: 'c',
-              texto: '<em>Streaming</em>.',
+              texto: '<i>Streaming</i>.',
               esCorrecta: false,
             },
             {
@@ -224,7 +224,7 @@ export default {
         },
         {
           id: 7,
-          texto: '¿Qué función cumple el <em>event loop</em> en Node.js?',
+          texto: '¿Qué función cumple el <i>event loop</i> en Node.js?',
           imagen: require('@/assets/actividad/imagen3.png'),
           barajarRespuestas: true,
           opciones: [
@@ -289,7 +289,7 @@ export default {
         },
         {
           id: 9,
-          texto: '¿Qué representa el objeto socket en Socket.io?',
+          texto: '¿Qué representa el objeto <i>socket</i> en Socket.io?',
           imagen: require('@/assets/actividad/imagen1.png'),
           barajarRespuestas: true,
           opciones: [
@@ -354,7 +354,8 @@ export default {
         },
         {
           id: 11,
-          texto: '¿Qué función cumple un IDE en el desarrollo de software?',
+          texto:
+            '¿Qué función cumple un IDE en el desarrollo de <i>software</i>?',
           imagen: require('@/assets/actividad/imagen3.png'),
           barajarRespuestas: true,
           opciones: [
@@ -404,7 +405,7 @@ export default {
             },
             {
               id: 'c',
-              texto: 'Resaltado de sintaxis e IntelliSense.',
+              texto: 'Resaltado de sintaxis e <i>IntelliSense</i>.',
               esCorrecta: true,
             },
             {
@@ -420,9 +421,8 @@ export default {
         },
         {
           id: 13,
-          texto: '¿Qué significa que HTTP sea un protocolo stateless?',
+          texto: '¿Qué significa que HTTP sea un protocolo <i>stateless</i>?',
           imagen: require('@/assets/actividad/imagen1.png'),
-          barajarRespuestas: true,
           opciones: [
             {
               id: 'a',
@@ -440,7 +440,7 @@ export default {
               esCorrecta: false,
             },
             {
-              id: 'c',
+              id: 'd',
               texto:
                 'Que no recuerda las interacciones anteriores entre cliente y servidor.',
               esCorrecta: true,
@@ -460,17 +460,17 @@ export default {
           opciones: [
             {
               id: 'a',
-              texto: '<em>Half-duplex.</em>',
+              texto: '<i>Half-duplex.</i>',
               esCorrecta: false,
             },
             {
               id: 'b',
-              texto: '<em>Single-thread.</em>',
+              texto: '<i>Single-thread.</i>',
               esCorrecta: false,
             },
             {
               id: 'c',
-              texto: '<em>Full-duplex.</em>',
+              texto: '<i>Full-duplex.</i>',
               esCorrecta: true,
             },
             {
@@ -572,7 +572,7 @@ export default {
             },
             {
               id: 'd',
-              texto: 'Elimina el <em>event loop</em>.',
+              texto: 'Elimina el <i>event loop</i>.',
               esCorrecta: false,
             },
           ],
@@ -671,7 +671,7 @@ export default {
             },
             {
               id: 'd',
-              texto: 'Uso exclusivo de <em>frameworks</em>.',
+              texto: 'Uso exclusivo de <i>frameworks</i>.',
               esCorrecta: false,
             },
           ],
@@ -681,7 +681,7 @@ export default {
             'Se recomienda revisar nuevamente el componente formativo e intentar nuevamente la actividad.',
         },
       ],
-      mensaje_final_aprobado: '¡Excelente! Ha superado la actividad.',
+      mensaje_final_aprobado: 'Ha superado la actividad.',
       mensaje_final_reprobado:
         'Le recomendamos volver a revisar el componente formativo e intentar nuevamente la actividad didáctica.',
     },

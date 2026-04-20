@@ -30,7 +30,7 @@
                 img(src='@/assets/curso/temas/t3/4.svg', alt='')
         .col-sm-12.col-lg-6.d-none.d-lg-block
           img(src='@/assets/curso/temas/t3/2.png', alt='')
-      p.mb-5(data-aos='fade-right') La carpeta #[b.text-cus-2 public/] contendrá el archivo HTML que se entregará al navegador. El archivo #[b.text-cus-2 index.js] será el servidor. Esta separación entre código del servidor y archivos del cliente es una convención estándar en proyectos Node.js; mezclarlos en la misma carpeta raíz dificulta el mantenimiento y la escalabilidad del proyecto.
+      p.mb-5(data-aos='fade-right') La carpeta #[b.text-cus-7 public/] contendrá el archivo HTML que se entregará al navegador. El archivo #[b.text-cus-7 index.js] será el servidor. Esta separación entre código del servidor y archivos del cliente es una convención estándar en proyectos Node.js; mezclarlos en la misma carpeta raíz dificulta el mantenimiento y la escalabilidad del proyecto.
 
 
 
@@ -38,11 +38,11 @@
       Separador        
       #t_3_2.titulo-segundo.color-acento-contenido(data-aos='fade-right')
         h2 3.2 Código del servidor
-      p.mb-5(data-aos='fade-right') Con la estructura del proyecto definida, se construye el archivo #[b.text-cus-2 index.js]  que actuará como núcleo de la aplicación. Este servidor combina la entrega de archivos estáticos al navegador con la gestión de eventos de dibujo en tiempo real mediante sockets.
+      p.mb-5(data-aos='fade-right') Con la estructura del proyecto definida, se construye el archivo #[b.text-cus-7 index.js]  que actuará como núcleo de la aplicación. Este servidor combina la entrega de archivos estáticos al navegador con la gestión de eventos de dibujo en tiempo real mediante #[i sockets].
 
       TabsC.color-acento-contenido(data-aos='fade-right')
         .py-3.py-md-4(titulo="Configuración del servidor con entrega de archivos estáticos")
-          p.mb-5 #[b.text-cus-2 express.static] le indica al servidor que entregue automáticamente cualquier archivo dentro de la carpeta public/ cuando un navegador lo solicite. Sin esta línea, el servidor respondería con error 404 a cualquier petición de archivos HTML, CSS o JavaScript del cliente. El módulo nativo path garantiza que la ruta funcione correctamente en cualquier sistema operativo, independientemente de si usa barras / o \ como separador.
+          p.mb-5 #[b.text-cus-7 express.static] le indica al servidor que entregue automáticamente cualquier archivo dentro de la carpeta #[b.text-cus-7 public/] cuando un navegador lo solicite. Sin esta línea, el servidor respondería con error 404 a cualquier petición de archivos HTML, CSS o JavaScript del cliente. El módulo nativo #[b.text-cus-7 path] garantiza que la ruta funcione correctamente en cualquier sistema operativo, independientemente de si usa barras / o \ como separador.
           .row.justify-content-center.align-items-center
             .col-sm-12.col-lg-5
                 .cajon.color-acento-contenido.p-5.mb-0
@@ -52,7 +52,7 @@
               img(src='@/assets/curso/temas/t3/5.png', alt='')
 
         .py-3.py-md-4(titulo="Gestión de eventos de dibujo en tiempo real")
-          p.mb-5 El evento #[b.text-cus-2 'dibujar'] recibe del cliente las coordenadas del trazo y las reenvía a todos los demás participantes usando #[b.text-cus-2 socket.broadcast.emit()]. Se usa #[b.text-cus-2 broadcast] en lugar de #[b.text-cus-2 io.emit()] deliberadamente: el cliente que dibuja ya ve su propio trazo en pantalla de forma local, por lo que enviárselo de vuelta generaría una duplicación visual. Este es un ejemplo concreto de por qué la distinción entre métodos de emisión tiene consecuencias directas en el comportamiento de la aplicación.
+          p.mb-5 El evento #[b.text-cus-7 'dibujar'] recibe del cliente las coordenadas del trazo y las reenvía a todos los demás participantes usando #[b.text-cus-7 socket.broadcast.emit()]. Se usa #[b.text-cus-7 broadcast] en lugar de #[b.text-cus-7 io.emit()] deliberadamente: el cliente que dibuja ya ve su propio trazo en pantalla de forma local, por lo que enviárselo de vuelta generaría una duplicación visual. Este es un ejemplo concreto de por qué la distinción entre métodos de emisión tiene consecuencias directas en el comportamiento de la aplicación.
           .row.justify-content-center.align-items-center
             .col-sm-12.col-lg-5
                 .cajon.color-acento-contenido.p-5.mb-0
@@ -73,7 +73,7 @@
       Separador
       #t_3_3.titulo-segundo.color-acento-contenido(data-aos='fade-right')
         h2 3.3 Código del cliente
-      p.mb-5(data-aos='fade-right') El archivo #[b.text-cus-2 public/index.html] contiene toda la interfaz y la lógica del cliente en un solo archivo:
+      p.mb-5(data-aos='fade-right') El archivo #[b.text-cus-7 public/index.html] contiene toda la interfaz y la lógica del cliente en un solo archivo:
 
 
 
@@ -88,17 +88,17 @@
       AcordionA(tipo="a" clase-tarjeta="tarjeta bg-color-7")(data-aos='fade-right')
         .row.align-items-center(titulo="El elemento canvas y el contexto 2D")
           .col-sm-12.col-lg-7.p-5
-            p.mb-0 El elemento HTML #[b.text-cus-2 canvas] es una superficie de dibujo en píxeles controlada completamente mediante JavaScript. El método #[b.text-cus-2 getContext('2d')] entrega el conjunto de herramientas de dibujo: trazos, figuras, colores y transformaciones. Sin obtener este contexto, el #[b.text-cus-2 canvas] es únicamente un rectángulo vacío sin capacidad de renderizar nada.
+            p.mb-0 El elemento HTML #[b.text-cus-7 canvas] es una superficie de dibujo en píxeles controlada completamente mediante JavaScript. El método #[b.text-cus-7 getContext('2d')] entrega el conjunto de herramientas de dibujo: trazos, figuras, colores y transformaciones. Sin obtener este contexto, el #[b.text-cus-7 canvas] es únicamente un rectángulo vacío sin capacidad de renderizar nada.
           .col-sm-12.col-lg-5.d-none.d-lg-block
             img(src='@/assets/curso/temas/t3/12.png', alt='')
         .row.align-items-center(titulo="La función dibujarLinea y el parámetro emitir ")
           .col-sm-12.col-lg-7.p-5
-            p.mb-0 Esta función cumple una doble responsabilidad: dibuja el trazo localmente en el #[b.text-cus-2 canvas] y, si el parámetro #[b.text-cus-2 emitir] es #[b.text-cus-2 true], envía las coordenadas al servidor mediante #[b.text-cus-2  socket.emit()]. Cuando el servidor reenvía el evento a los demás clientes y estos lo reciben por #[b.text-cus-2  socket.on('dibujar')], llaman a la misma función con #[b.text-cus-2 emitir] en #[b.text-cus-2 false], evitando así un ciclo infinito donde cada cliente reenviaría indefinidamente los trazos recibidos.
+            p.mb-0 Esta función cumple una doble responsabilidad: dibuja el trazo localmente en el #[b.text-cus-7 canvas] y, si el parámetro #[b.text-cus-7 emitir] es #[b.text-cus-7 true], envía las coordenadas al servidor mediante #[b.text-cus-7  socket.emit()]. Cuando el servidor reenvía el evento a los demás clientes y estos lo reciben por #[b.text-cus-7  socket.on('dibujar')], llaman a la misma función con #[b.text-cus-7 emitir] en #[b.text-cus-7 false], evitando así un ciclo infinito donde cada cliente reenviaría indefinidamente los trazos recibidos.
           .col-sm-12.col-lg-5.d-none.d-lg-block
             img(src='@/assets/curso/temas/t3/13.png', alt='')
         .row.align-items-center(titulo="Los eventos del ratón y el control del estado de dibujo ")
           .col-sm-12.col-lg-7.p-5
-            p.mb-0 La variable #[b.text-cus-2 dibujando] actúa como un interruptor: se activa con #[b.text-cus-2 mousedown] y se desactiva con #[b.text-cus-2 mouseup] o #[b.text-cus-2 mouseleave]. Sin el evento #[b.text-cus-2 mouseleave], al arrastrar el cursor fuera del #[b.text-cus-2 canvas] y volver a entrar, el servidor continuaría recibiendo coordenadas de dibujo, aunque el usuario no tuviera el botón presionado, generando trazos involuntarios que degradan la experiencia de todos los participantes conectados.
+            p.mb-0 La variable #[b.text-cus-7 dibujando] actúa como un interruptor: se activa con #[b.text-cus-7 mousedown] y se desactiva con #[b.text-cus-7 mouseup] o #[b.text-cus-7 mouseleave]. Sin el evento #[b.text-cus-7 mouseleave], al arrastrar el cursor fuera del #[b.text-cus-7 canvas] y volver a entrar, el servidor continuaría recibiendo coordenadas de dibujo, aunque el usuario no tuviera el botón presionado, generando trazos involuntarios que degradan la experiencia de todos los participantes conectados.
           .col-sm-12.col-lg-5.d-none.d-lg-block
             img(src='@/assets/curso/temas/t3/14.png', alt='')
   </template>
@@ -211,6 +211,13 @@ export default {
       // Resalta una versión escapada del HTML con spans (sin depender de plugins externos).
       let s = this.escapeHtml(raw)
 
+      // Bloque CSS específico del ejemplo (solo estas líneas deben ir en rojo)
+      // Nota: lo hacemos antes del resto de reemplazos para no afectar otros tokens.
+      s = s.replace(
+        /(\n\s*body\s*\{[\s\S]*?\}\s*\n\s*canvas\s*\{[\s\S]*?\})/g,
+        m => `<span class="tok-css-block">${m}</span>`,
+      )
+
       // DOCTYPE
       s = s.replace(/&lt;!DOCTYPE\s+([a-zA-Z0-9]+)\s*&gt;/g, (_m, v) => {
         return `&lt;!DOCTYPE <span class="tok-doctype">${v}</span>&gt;`
@@ -277,6 +284,10 @@ export default {
 </script>
 
 <style lang="sass">
+.tok-css-block
+  color: #c90b0b
+  font-weight: 700
+
 .tok-doctype
   color: #c90b0b
   font-weight: 700

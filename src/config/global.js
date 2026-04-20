@@ -150,7 +150,7 @@ export default {
   ],
   glosario: [
     {
-      termino: 'API (interfaz de programación de aplicaciones)',
+      termino: 'API (Interfaz de Programación de Aplicaciones)',
       significado:
         'conjunto de reglas y protocolos que permite la comunicación entre distintas aplicaciones de <em>software</em>. en el contexto del desarrollo web con node.js, express facilita la construcción de la api del servidor definiendo las rutas y respuestas disponibles para los clientes.',
     },
@@ -170,7 +170,7 @@ export default {
         'marco de trabajo de código abierto que permite desarrollar aplicaciones de escritorio multiplataforma usando tecnologías web (html, css y javascript). visual studio code está construido sobre electron, lo que explica su comportamiento idéntico en windows, macos y linux.',
     },
     {
-      termino: '<em>Event loop</em> (bucle de eventos)',
+      termino: '<em>Event loop</em> (Bucle de Eventos)',
       significado:
         'mecanismo interno de node.js que permite ejecutar operaciones de entrada/salida de forma no bloqueante. en lugar de esperar a que una tarea pesada termine, delega su ejecución al sistema operativo y continúa procesando otras solicitudes, lo que posibilita alta concurrencia en un solo hilo.',
     },
@@ -185,12 +185,12 @@ export default {
         'característica de un canal de comunicación que permite enviar y recibir datos simultáneamente en ambas direcciones sin interrupciones. es la propiedad fundamental de los websockets que los distingue del protocolo http tradicional, donde solo el cliente puede iniciar la comunicación.',
     },
     {
-      termino: '<em>Handshake</em> (negociación inicial)',
+      termino: '<em>Handshake</em> (Negociación Inicial)',
       significado:
         'proceso automatizado entre cliente y servidor para establecer los parámetros de una conexión websocket. el cliente envía una petición http con cabecera de <em>upgrade</em> y, si el servidor la acepta, la conexión http se transforma en un canal tcp persistente y bidireccional.',
     },
     {
-      termino: 'IDE (entorno de desarrollo integrado)',
+      termino: 'IDE (Entorno de Desarrollo Integrado)',
       significado:
         'plataforma de <em>software</em> que centraliza en una sola interfaz las herramientas esenciales del desarrollo: editor de código, terminal integrada y depurador. en el ecosistema node.js, visual studio code es el ide de referencia en la industria.',
     },
@@ -205,7 +205,7 @@ export default {
         'entorno de ejecución de javascript de código abierto y multiplataforma, construido sobre el motor v8 de chrome. permite ejecutar javascript en el servidor, fuera del navegador, y está diseñado para construir aplicaciones de red escalables gracias a su modelo de i/o no bloqueante.',
     },
     {
-      termino: 'NPM (<em>node package manager</em>)',
+      termino: 'NPM (<em>Node Package Manager</em>)',
       significado:
         'gestor de paquetes oficial de node.js que permite instalar, actualizar y administrar dependencias de terceros. incluye acceso al repositorio público de paquetes de código abierto más grande del mundo y se instala automáticamente junto con node.js.',
     },
@@ -275,6 +275,11 @@ export default {
           cargo: 'Experto temático',
           centro: 'Centro Agroturístico - Regional Santander',
         },
+        {
+          nombre: 'Angélica Varón Quintero',
+          cargo: 'Evaluadora instruccional',
+          centro: 'Centro Agroturístico - Regional Santander',
+        },
       ],
     },
     {
@@ -301,7 +306,7 @@ export default {
       titulo: 'VALIDACIÓN RECURSO EDUCATIVO DIGITAL',
       autores: [
         {
-          nombre: '--',
+          nombre: 'Erika Daniela Manrique Rueda',
           cargo: 'Validadora y vinculadora de recursos educativos digitales',
           centro: 'Centro Agroturístico - Regional Santander',
         },
