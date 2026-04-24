@@ -152,77 +152,77 @@ export default {
     {
       termino: 'API (Interfaz de Programación de Aplicaciones)',
       significado:
-        'conjunto de reglas y protocolos que permite la comunicación entre distintas aplicaciones de <em>software</em>. en el contexto del desarrollo web con node.js, express facilita la construcción de la api del servidor definiendo las rutas y respuestas disponibles para los clientes.',
+        'conjunto de reglas y protocolos que permite la comunicación entre distintas aplicaciones de <em>software</em>. En el contexto del desarrollo web con Node.js, Express facilita la construcción de la API del servidor definiendo las rutas y respuestas disponibles para los clientes.',
     },
     {
       termino: '<em>Broadcast</em>',
       significado:
-        'método de transmisión en socket.io mediante el cual el servidor envía un evento a todos los clientes conectados simultáneamente, con excepción del emisor original. se implementa con socket.broadcast.emit().',
+        'método de transmisión en socket.io mediante el cual el servidor envía un evento a todos los clientes conectados simultáneamente, con excepción del emisor original. Se implementa con socket.broadcast.emit().',
     },
     {
       termino: 'Dependencia',
       significado:
-        'librería de código desarrollada por terceros que un proyecto node.js necesita para funcionar. se instala con npm install y queda registrada en el archivo package.json, lo que permite reconstruir el entorno en cualquier equipo.',
+        'librería de código desarrollada por terceros que un proyecto Node.js necesita para funcionar. Se instala con npm install y queda registrada en el archivo package.json, lo que permite reconstruir el entorno en cualquier equipo.',
     },
     {
       termino: 'Electron',
       significado:
-        'marco de trabajo de código abierto que permite desarrollar aplicaciones de escritorio multiplataforma usando tecnologías web (html, css y javascript). visual studio code está construido sobre electron, lo que explica su comportamiento idéntico en windows, macos y linux.',
+        'marco de trabajo de código abierto que permite desarrollar aplicaciones de escritorio multiplataforma usando tecnologías web (html, css y javascript). Visual Studio Code está construido sobre Electron, lo que explica su comportamiento idéntico en Windows, MacOS y Linux.',
     },
     {
       termino: '<em>Event loop</em> (Bucle de Eventos)',
       significado:
-        'mecanismo interno de node.js que permite ejecutar operaciones de entrada/salida de forma no bloqueante. en lugar de esperar a que una tarea pesada termine, delega su ejecución al sistema operativo y continúa procesando otras solicitudes, lo que posibilita alta concurrencia en un solo hilo.',
+        'mecanismo interno de Node.js que permite ejecutar operaciones de entrada/salida de forma no bloqueante. En lugar de esperar a que una tarea pesada termine, delega su ejecución al sistema operativo y continúa procesando otras solicitudes, lo que posibilita alta concurrencia en un solo hilo.',
     },
     {
       termino: 'Express',
       significado:
-        'marco de trabajo minimalista para node.js que simplifica la creación de servidores http, la definición de rutas y el manejo de peticiones y respuestas. es el estándar de la industria para construir el servidor base sobre el que se integran capas adicionales como socket.io.',
+        'marco de trabajo minimalista para Node.js que simplifica la creación de servidores HTTP, la definición de rutas y el manejo de peticiones y respuestas. Es el estándar de la industria para construir el servidor base sobre el que se integran capas adicionales como socket.io.',
     },
     {
       termino: '<em>Full-duplex</em>',
       significado:
-        'característica de un canal de comunicación que permite enviar y recibir datos simultáneamente en ambas direcciones sin interrupciones. es la propiedad fundamental de los websockets que los distingue del protocolo http tradicional, donde solo el cliente puede iniciar la comunicación.',
+        'característica de un canal de comunicación que permite enviar y recibir datos simultáneamente en ambas direcciones sin interrupciones. Es la propiedad fundamental de los websockets que los distingue del protocolo HTTP tradicional, donde solo el cliente puede iniciar la comunicación.',
     },
     {
       termino: '<em>Handshake</em> (Negociación Inicial)',
       significado:
-        'proceso automatizado entre cliente y servidor para establecer los parámetros de una conexión websocket. el cliente envía una petición http con cabecera de <em>upgrade</em> y, si el servidor la acepta, la conexión http se transforma en un canal tcp persistente y bidireccional.',
+        'proceso automatizado entre cliente y servidor para establecer los parámetros de una conexión WebSocket. El cliente envía una petición HTTP con cabecera de <em>upgrade</em> y, si el servidor la acepta, la conexión HTTP se transforma en un canal TCP persistente y bidireccional.',
     },
     {
       termino: 'IDE (Entorno de Desarrollo Integrado)',
       significado:
-        'plataforma de <em>software</em> que centraliza en una sola interfaz las herramientas esenciales del desarrollo: editor de código, terminal integrada y depurador. en el ecosistema node.js, visual studio code es el ide de referencia en la industria.',
+        'plataforma de <em>software</em> que centraliza en una sola interfaz las herramientas esenciales del desarrollo: editor de código, terminal integrada y depurador. En el ecosistema Node.js, visual studio code es el ide de referencia en la industria.',
     },
     {
       termino: '<em>Localhost</em>',
       significado:
-        'nombre de <em>host</em> que hace referencia a la propia máquina donde se ejecuta el servidor (dirección ip 127.0.0.1). se utiliza para probar aplicaciones web en el entorno local antes de desplegarlas en un servidor de producción accesible desde internet.',
+        'nombre de <em>host</em> que hace referencia a la propia máquina donde se ejecuta el servidor (dirección ip 127.0.0.1). Se utiliza para probar aplicaciones web en el entorno local antes de desplegarlas en un servidor de producción accesible desde internet.',
     },
     {
       termino: 'Node.js',
       significado:
-        'entorno de ejecución de javascript de código abierto y multiplataforma, construido sobre el motor v8 de chrome. permite ejecutar javascript en el servidor, fuera del navegador, y está diseñado para construir aplicaciones de red escalables gracias a su modelo de i/o no bloqueante.',
+        'entorno de ejecución de javascript de código abierto y multiplataforma, construido sobre el motor v8 de Chrome. Permite ejecutar JavaScript en el servidor, fuera del navegador, y está diseñado para construir aplicaciones de red escalables gracias a su modelo de I/O no bloqueante.',
     },
     {
       termino: 'NPM (<em>Node Package Manager</em>)',
       significado:
-        'gestor de paquetes oficial de node.js que permite instalar, actualizar y administrar dependencias de terceros. incluye acceso al repositorio público de paquetes de código abierto más grande del mundo y se instala automáticamente junto con node.js.',
+        'gestor de paquetes oficial de Node.js que permite instalar, actualizar y administrar dependencias de terceros. Incluye acceso al repositorio público de paquetes de código abierto más grande del mundo y se instala automáticamente junto con Node.js.',
     },
     {
       termino: 'Package.json',
       significado:
-        'archivo manifiesto ubicado en la raíz de todo proyecto node.js. registra el nombre del proyecto, el archivo de entrada principal y el inventario exacto de dependencias instaladas. permite que cualquier desarrollador reconstruya el entorno completo con un solo comando npm install.',
+        'archivo manifiesto ubicado en la raíz de todo proyecto Node.js. Registra el nombre del proyecto, el archivo de entrada principal y el inventario exacto de dependencias instaladas. Permite que cualquier desarrollador reconstruya el entorno completo con un solo comando npm install.',
     },
     {
       termino: 'Servidor HTTP',
       significado:
-        '<em>software</em> que implementa el protocolo http y es responsable de recibir peticiones de navegadores web y entregar la respuesta correspondiente. en el contexto de node.js, el servidor http se construye con el módulo nativo http y se organiza mediante el <em>framework</em> express.',
+        '<em>software</em> que implementa el protocolo HTTP y es responsable de recibir peticiones de navegadores web y entregar la respuesta correspondiente. En el contexto de Node.js, el servidor HTTP se construye con el módulo nativo HTTP y se organiza mediante el <em>framework</em> express.',
     },
     {
       termino: 'WebSockets',
       significado:
-        'protocolo de comunicación estandarizado (RFC 6455) que establece un canal persistente, bidireccional y <em>full-duplex</em> sobre una única conexión TCP. a diferencia del protocolo HTTP, permite que el servidor envíe datos al cliente en cualquier momento sin esperar una petición previa, lo que lo hace ideal para chats, tableros y aplicaciones colaborativas en tiempo real.',
+        'protocolo de comunicación estandarizado (RFC 6455) que establece un canal persistente, bidireccional y <em>full-duplex</em> sobre una única conexión TCP. A diferencia del protocolo HTTP, permite que el servidor envíe datos al cliente en cualquier momento sin esperar una petición previa, lo que lo hace ideal para chats, tableros y aplicaciones colaborativas en tiempo real.',
     },
   ],
   referencias: [
@@ -258,7 +258,7 @@ export default {
         {
           nombre: 'Claudia Johanna Gómez Pérez',
           cargo: 'Responsable del ecosistema',
-          centro: 'Dirección General',
+          centro: 'Centro Agroturístico - Regional Santander',
         },
         {
           nombre: 'Edison Eduardo Mantilla Cuadros',

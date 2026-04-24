@@ -80,7 +80,7 @@
                     .cajon.color-acento-contenido.p-4
                       p.mb-2 javascript
                       .mb-0.d-flex #[.text-cus-4 const] &nbsp; app =   &nbsp;#[.text-cus-3 express]();
-                      .mb-0.d-flex #[.text-cus-4 const] &nbsp; servidor = http.#[.text-cus-3 createServer](app);
+                      .mb-0.d-flex.no-wrap.text-cus-8  #[.text-cus-4 const]&nbsp;servidor = http.#[.text-cus-3 createServer](app);
                   .col-sm-12.col-lg-4.d-none.d-lg-block
                     img(src='@/assets/curso/temas/t2/7.png', alt='')
 
@@ -136,7 +136,7 @@
       p.mb-5(data-aos='fade-right') El servidor HTTP construido en la sección anterior resuelve eficientemente las peticiones tradicionales: un cliente pregunta, el servidor responde y la conexión se cierra. Sin embargo, este modelo tiene un límite estructural que lo hace inviable para aplicaciones en tiempo real: el servidor jamás puede iniciar una conversación; siempre espera a que el cliente dé el primer paso.  
 
       .titulo-sexto.color-acento-contenido(data-aos='fade-right')
-        p.mb-0  #[b Tabla 1.] Comparación entre HTTP tradicional (#[i (polling)]) y WebSockets
+        p.mb-0  #[b Tabla 1.] Comparación entre HTTP tradicional (#[i polling]) y WebSockets
       .tabla-a.color-acento-contenido.mb-5(data-aos='fade-right')
         table
           thead
@@ -176,7 +176,7 @@
             .tarjeta.bg-white.p-4
               TarjetaAudio.color-acento-contenido.mb-4.p-4(
               texto="Del <em>polling</em> al tiempo real: cómo funcionan los WebSockets"
-              :audio="require('@/assets/curso/temas/t2/5.mp3')"
+              :audio="require('@/assets/curso/temas/t2/Podcast_CF2-76130641.mp3')"
           )
               p.mb-0 Para comprender de forma conversacional cómo WebSockets supera las limitaciones del protocolo HTTP tradicional, se sugiere explorar el siguiente recurso de audio:  
 
@@ -296,16 +296,16 @@
                     th.text-start ¿A quién llega?
                 tbody
                   tr
-                    td.text-cus-2.fw-bold socket.emit()
+                    td.text-cus-7.fw-bold socket.emit()
                     td Solo al emisor
                   tr
-                    td.text-cus-2.fw-bold socket.on()
+                    td.text-cus-7.fw-bold socket.on()
                     td Escucha eventos de un cliente específico
                   tr
-                    td.text-cus-2.fw-bold socket.broadcast.emit()
+                    td.text-cus-7.fw-bold socket.broadcast.emit()
                     td A todos los clientes conectados excepto al emisor
                   tr
-                    td.text-cus-2.fw-bold io.emit()
+                    td.text-cus-7.fw-bold io.emit()
                     td A todos los clientes conectados sin excepción
         .col-sm-12.col-lg-4.d-none.d-lg-block
           img(src='@/assets/curso/temas/t2/12.png', alt='')
